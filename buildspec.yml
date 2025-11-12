@@ -4,8 +4,8 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin <account_id>.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
-      - REPO_URI=<account_id>.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/my-app
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin 319353007797.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+      - REPO_URI=319353007797.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/my-app
   build:
     commands:
       - echo Building Docker image...
