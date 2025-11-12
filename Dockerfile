@@ -1,11 +1,12 @@
-# Use a lightweight base image
-FROM alpine:latest
+# Use the official Nginx image as base
+FROM nginx:latest
 
-# Set working directory
-WORKDIR /app
+# Copy custom HTML file (optional)
+# Uncomment if you want to serve your own page
+# COPY index.html /usr/share/nginx/html/index.html
 
-# Create a simple script
-RUN echo 'echo "Hello World"' > hello.sh && chmod +x hello.sh
+# Expose port 80
+EXPOSE 80
 
-# Set the entrypoint
-ENTRYPOINT ["sh", "hello.sh"]
+# Default command to run Nginx
+CMD ["nginx", "-g", "daemon off;"]
