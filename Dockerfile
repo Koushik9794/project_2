@@ -1,5 +1,8 @@
-# Use a lightweight base image
-FROM nginx:alpine
+# Use Amazon Linux as base image
+FROM amazonlinux:latest
+
+# Install Nginx
+RUN yum install -y nginx && yum clean all
 
 # Create a custom HTML page
 RUN echo "<h1>Hello World</h1>" > /usr/share/nginx/html/index.html
