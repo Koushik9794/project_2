@@ -1,11 +1,11 @@
-# Use Nginx image from your ECR repository instead of Docker Hub
-FROM 319353007797.dkr.ecr.ap-south-1.amazonaws.com/nginx:latest
+# Use a lightweight base image
+FROM nginx:alpine
 
-# Optional: Add custom HTML page
-# COPY index.html /usr/share/nginx/html/index.html
+# Create a custom HTML page
+RUN echo "<h1>Hello World</h1>" > /usr/share/nginx/html/index.html
 
 # Expose port 80
 EXPOSE 80
 
-# Run Nginx in foreground
+# Start Nginx in foreground
 CMD ["nginx", "-g", "daemon off;"]
