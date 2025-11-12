@@ -1,12 +1,11 @@
-# Use the official Nginx image as base
-FROM nginx:latest
+# Use Nginx image from your ECR repository instead of Docker Hub
+FROM 319353007797.dkr.ecr.ap-south-1.amazonaws.com/nginx:latest
 
-# Copy custom HTML file (optional)
-# Uncomment if you want to serve your own page
+# Optional: Add custom HTML page
 # COPY index.html /usr/share/nginx/html/index.html
 
 # Expose port 80
 EXPOSE 80
 
-# Default command to run Nginx
+# Run Nginx in foreground
 CMD ["nginx", "-g", "daemon off;"]
